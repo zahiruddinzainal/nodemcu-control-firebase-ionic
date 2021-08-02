@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,24 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private db: AngularFireDatabase) { 
+    const itemsRef = db.list('items');
+    itemsRef.push({ name: "kkk" });
+  }
+
+
+
+  switchon() {
+    alert("Switched on");
+
+  }
+
+  switchoff() {
+    alert("Switched off");
+  }
+
+
 
 }
+
+
